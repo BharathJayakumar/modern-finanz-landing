@@ -1,34 +1,38 @@
 import { Card } from "@/components/ui/card";
 import { CheckCircle, TrendingUp, Shield, Target } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const benefits = [
+const getBenefits = (t: (key: string) => string) => [
   {
     icon: Target,
-    title: "Actionable Strategies",
-    description: "Tailored guidance for young professionals & self-employed individuals to maximize their financial potential."
+    title: t('value.benefit1.title'),
+    description: t('value.benefit1.description')
   },
   {
     icon: TrendingUp,
-    title: "Smart Investment Planning",
-    description: "Expert insights on retirement planning, strategic investments, and wealth building techniques."
+    title: t('value.benefit2.title'),
+    description: t('value.benefit2.description')
   },
   {
     icon: Shield,
-    title: "Comprehensive Protection",
-    description: "Learn about insurance strategies and risk management to protect your financial future."
+    title: t('value.benefit3.title'),
+    description: t('value.benefit3.description')
   }
 ];
 
 export const ValueProposition = () => {
+  const { t } = useLanguage();
+  const benefits = getBenefits(t);
+  
   return (
     <section className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            Why Choose Our Financial Expertise?
+            {t('value.headline')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Get access to proven strategies from Germany's most modern financial advisory firm
+            {t('value.subheadline')}
           </p>
         </div>
 
@@ -52,7 +56,7 @@ export const ValueProposition = () => {
           <div className="inline-flex items-center gap-2 bg-accent/50 rounded-full px-6 py-3">
             <CheckCircle className="h-5 w-5 text-primary" />
             <span className="text-sm font-medium text-accent-foreground">
-              Expertise from Germany's most modern financial advisory
+              {t('value.badge')}
             </span>
           </div>
         </div>

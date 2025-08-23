@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Download, Phone, Mail } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const WhitepaperForm = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ export const WhitepaperForm = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,8 +24,8 @@ export const WhitepaperForm = () => {
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     toast({
-      title: "Whitepaper wird gesendet!",
-      description: "Sie erhalten Ihr kostenloses Whitepaper in Kürze per E-Mail.",
+      title: t('form.success.title'),
+      description: t('form.success.description'),
     });
 
     setIsSubmitting(false);
@@ -40,10 +42,10 @@ export const WhitepaperForm = () => {
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-              Download Your Free Whitepaper
+              {t('form.headline')}
             </h2>
             <p className="text-lg text-muted-foreground">
-              Enter your details to receive the whitepaper and unlock exclusive financial planning insights.
+              {t('form.subheadline')}
             </p>
           </div>
 
@@ -53,12 +55,12 @@ export const WhitepaperForm = () => {
                 <div>
                   <Label htmlFor="email" className="text-sm font-medium text-foreground flex items-center gap-2">
                     <Mail className="h-4 w-4" />
-                    E-Mail Address
+                    {t('form.email.label')}
                   </Label>
                   <Input
                     id="email"
                     type="email"
-                    placeholder="ihre.email@beispiel.de"
+                    placeholder={t('form.email.placeholder')}
                     value={formData.email}
                     onChange={(e) => handleInputChange("email", e.target.value)}
                     required
@@ -69,12 +71,12 @@ export const WhitepaperForm = () => {
                 <div>
                   <Label htmlFor="mobile" className="text-sm font-medium text-foreground flex items-center gap-2">
                     <Phone className="h-4 w-4" />
-                    Mobile Number
+                    {t('form.mobile.label')}
                   </Label>
                   <Input
                     id="mobile"
                     type="tel"
-                    placeholder="+49 123 456 7890"
+                    placeholder={t('form.mobile.placeholder')}
                     value={formData.mobile}
                     onChange={(e) => handleInputChange("mobile", e.target.value)}
                     required
@@ -90,11 +92,11 @@ export const WhitepaperForm = () => {
                   className="w-full h-14 text-lg font-semibold bg-trust-gradient hover:shadow-professional transition-all duration-300"
                 >
                   {isSubmitting ? (
-                    "Wird gesendet..."
+                    t('form.submitting')
                   ) : (
                     <>
                       <Download className="mr-2 h-5 w-5" />
-                      Download Whitepaper
+                      {t('form.cta')}
                     </>
                   )}
                 </Button>
@@ -102,7 +104,7 @@ export const WhitepaperForm = () => {
 
               <div className="text-center pt-4">
                 <p className="text-sm text-muted-foreground">
-                  Ihre Daten werden vertraulich behandelt und nicht an Dritte weitergegeben.
+                  {t('form.privacy')}
                 </p>
               </div>
             </form>
