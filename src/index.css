@@ -17,24 +17,38 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 213 94% 32%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 213 20% 96%;
+    --secondary-foreground: 213 94% 32%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 213 10% 95%;
+    --muted-foreground: 213 5% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 213 30% 90%;
+    --accent-foreground: 213 94% 32%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 213 20% 90%;
+    --input: 213 20% 95%;
+    --ring: 213 94% 32%;
+
+    /* Financial theme colors */
+    --corporate-blue: 213 94% 32%;
+    --corporate-blue-light: 213 30% 90%;
+    --corporate-blue-dark: 213 94% 25%;
+    --trust-gradient: linear-gradient(135deg, hsl(213 94% 32%), hsl(213 94% 42%));
+    --hero-gradient: linear-gradient(135deg, hsl(213 94% 32%), hsl(220 80% 40%));
+    
+    /* Professional shadows */
+    --shadow-professional: 0 4px 24px -4px hsl(213 94% 32% / 0.15);
+    --shadow-card: 0 2px 12px -2px hsl(213 20% 20% / 0.08);
+    
+    /* Smooth transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.5rem;
 
